@@ -34,14 +34,16 @@ public class MainActivityFragment extends Fragment {
                 "Sun 6/29 - Sunny - 20/7"
         };
         List<String> weekForecast = new ArrayList<String>(Arrays.asList(data));
+        //Question here why the String in line 36,39 were reported can be replaced by <>?
         ArrayAdapter<String> mForecastAdapter =
                 new ArrayAdapter<String>(
                         getActivity(),
                         R.layout.list_item_forecast,
-                        R.id.list_item_forecast_textview,weekForecast);
+                        R.id.list_item_forecast_textview,
+                        weekForecast);
         View rootView = inflater.inflate(R.layout.fragment_main,container,false);
         ListView listView=(ListView)rootView.findViewById(R.id.listview_fprecast);
-        listView.getAdapter();
+        listView.setAdapter(mForecastAdapter);
                 return rootView;
 //        return inflater.inflate(R.layout.fragment_main, container, false);
     }
